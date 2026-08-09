@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+select player_id,first_login from(select player_id,event_date as first_login,Dense_Rank() over(partition by player_id order by event_date asc) as ran from Activity) t where ran = 1; 
